@@ -5,8 +5,32 @@ import React, { useState } from "react";
  *
  * When the form is submitted, a new post is created and the form contents cleared.
  */
-function PostCreate({formData, handleChange, handleSubmit}) {
+function PostCreate({ createPosts }) {
   const [type, setType] = useState("Text");
+
+  const handleType = (event) => setType(event.target.value);
+
+  const initialFormState = {
+    type: "Text",
+    content: "",
+  }
+  const [formData, setFormData] = useState({...initialFormState});
+
+  const handleChange = ({target}) => {
+    console.log(target.name);
+    console.log(target.value);
+    setFormData({
+      ...formData,
+      [target.name]: target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+    createPosts({type: type, content: formData.content});
+    setFormData({...initialFormState});
+  } 
 
   // TODO: When the form is submitted, a new post should be created, and the form contents cleared.
   // For the tests to pass, the form below must have:
@@ -21,14 +45,14 @@ function PostCreate({formData, handleChange, handleSubmit}) {
         <legend>Create</legend>
         <div>
           <label htmlFor="type">Type: </label>
-          <select id="type" name="type" required={true}>
+          <select id="type" name="type" required={true} onChange={handleType} value={type}>
             <option value="Text">Text</option>
             <option value="Image">Image</option>
           </select>
         </div>
         <div>
           <label htmlFor="content">Content: </label>
-          {formData.type === "Text" ? (
+          {type === "Text" ? (
             <textarea 
               id="content" 
               name="content" 

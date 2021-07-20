@@ -4,7 +4,7 @@ import React from "react";
  * Diplays a list of either text or image posts.
  *
  */
-function PostList({posts, formData, handleDelete}) {
+function PostList({posts, handleDelete}) {
   // TODO: Diplay the list of posts.
   // TODO: Create at least one additional component that is used by this component.
   // TODO: Each post must have className="post" for the tests to work.
@@ -30,18 +30,18 @@ function PostList({posts, formData, handleDelete}) {
   // })
 
   let listOfPosts = posts.map ((post, index) => {
-    if(formData.type === "Text"){
+    if(post.type === "Text"){
         return (
         <div className="post">
-          <p>{formData.content}</p>
-          <button name="delete" onClick={(post) => handleDelete(post)}>Delete</button>
+          <p>{post.content}</p>
+          <button name="delete" onClick={() => handleDelete(index)}>Delete</button>
         </div>
         );
     } else {
         return( 
         <div className="post">
-          <img src={formData.content} alt="image"/>
-          <button name="delete" onClick={(post) => handleDelete}>Delete</button>
+          <img src={post.content} alt="image"/>
+          <button name="delete" onClick={() => handleDelete(index)}>Delete</button>
         </div>
         );
     }
