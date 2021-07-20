@@ -21,7 +21,7 @@ function PostCreate({formData, handleChange, handleSubmit}) {
         <legend>Create</legend>
         <div>
           <label htmlFor="type">Type: </label>
-          <select id="type" name="type" required={true} onChange={handleChange}>
+          <select id="type" name="type" required={true}>
             <option value="Text">Text</option>
             <option value="Image">Image</option>
           </select>
