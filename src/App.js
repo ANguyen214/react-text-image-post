@@ -10,14 +10,6 @@ function App() {
   }
   // TODO: Add the ability for the <PostCreate /> component to create new posts.
   // TODO: Add the ability for the <PostList /> component to delete an existing post.
- 
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   console.log(formData);
-  //   createPosts();
-  //   setFormData({...initialFormState});
-  // }
 
   const handleDelete = (deleteIndex) => {
     setPosts((currentPosts) => 

@@ -9,25 +9,6 @@ function PostList({posts, handleDelete}) {
   // TODO: Create at least one additional component that is used by this component.
   // TODO: Each post must have className="post" for the tests to work.
   // TODO: Each post must have a delete button - <button name="delete">Delete</button> - that deletes the post when clicked
-  // const arrayOfPosts = [];
-  // posts.forEach((post) => {
-  //   //console.log(formData.content);
-  //   if(formData.type === "Text"){
-  //     arrayOfPosts.push(
-  //       <div className="post">
-  //         <p>{formData.content}</p>
-  //         <button name="delete" onClick={handleDelete}>Delete</button>
-  //       </div>
-  //     );
-  //   } else {
-  //     arrayOfPosts.push(
-  //       <div className="post">
-  //         <img src={`${formData.content}`} />
-  //         <button name="delete" onClick={handleDelete}>Delete</button>
-  //       </div>
-  //     );
-  //   }
-  // })
 
   let listOfPosts = posts.map ((post, index) => {
     if(post.type === "Text"){
@@ -47,7 +28,6 @@ function PostList({posts, handleDelete}) {
     }
   });
  
-
   return (
     <div className="post-list">{listOfPosts}</div>
   );
